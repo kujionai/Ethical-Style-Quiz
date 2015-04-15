@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<style>
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  text-align: center;
+  font-size: 50px;
+  color: #0e0e0e;
+}
+
+
+
+#container {
+  width: 480px;
+  margin: auto !important;
+  display: block;
+  position: relative;
+  list-style-type: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.buddy {
+  display: none;
+  top: 50px;
+  position: absolute;
+  cursor: hand;
+}
+
+.rotate-left {
+  transform: rotate(30deg) scale(0.8);
+  transition: 2s;
+  margin-left: 400px;
+  cursor: e-resize;
+  opacity: 0;
+}
+
+.rotate-right {
+  transform: rotate(-30deg) scale(0.8);
+  transition: 2s;
+  opacity: 0;
+  margin-left: -400px;
+  cursor: w-resize;
+}
+
+.avatar {
+  background: #222;
+  width: 400px;
+  height: 400px;
+  display: block;
+  background-size: 100% auto !important;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.like, .dislike {
+  color: #ffffff;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 35px;
+  letter-spacing: 5px;
+  position: absolute;
+  top: 50px;
+}
+
+.like {
+  right: 75px;
+}
+
+.dislike {
+  left: 75px;
+}
+
+.tint {
+  position: relative;
+  float: left;
+  cursor: pointer;
+}
+
+.tint:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  /*background: rgba(0,255,255, 0.5);*/
+  -moz-transition: background .3s linear;
+  -webkit-transition: background .3s linear;
+  -o-transition: background .3s linear;
+  transition: background .3s linear;
+}
+
+.like-tint:before {
+  background: rgba(125,226,159,0.75);
+}
+
+.dislike-tint:before {
+  background: rgba(246,71,72,0.75);
+}
+
+</style>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css">
+  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
+  <link href='http://fonts.googleapis.com/css?family=Josefin+Sans:100,300,400' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <h1>Oberlin College or NYU?</h1>
+  <!-- <h2>SWIPE TO DISCOVER THE COLLEGE THAT FITS YOUR STYLE</h2> -->
+  <div id="container">
+    <div class="buddy" style="display: block;">
+      <figure>
+        <div class="avatar"  style="display: block; background-image: url(protest.jpg)"></div>
+      </figure>
+    </div>
+
+    <div class="buddy">
+      <figure>
+        <div class="avatar" style="display: block; background-image: url(entrepreneur.jpg)"></div>
+      </figure>
+    </div>
+
+    <div class="buddy">
+      <figure>
+        <div class="avatar" style="display: block; background-image: url(field.jpg)"></div>
+      </figure>
+    </div>
+
+    <div class="buddy">
+      <figure>
+        <div class="avatar" style="display: block; background-image: url(hippie-dance.jpg)"></div>
+      </figure>
+    </div>
+
+    <div class="buddy">
+      <figure>
+        <div class="avatar"  style="display: block; background-image: url(hipster.jpg)"></div>
+      </figure>
+    </div>
+
+    <div class="buddy">
+      <figure>
+        <div class="avatar" style="display: block; background-image: url(manhattan.jpg)"></div>
+      </figure>
+    </div>
+
+    <div class="buddy">
+      <figure>
+        <div class="avatar" style="display: block; background-image: url(party.jpg)"></div>
+      </figure>
+    </div>
+
+    <div class="buddy">
+      <figure>
+        <div class="avatar" style="display: block; background-image: url(preppy-guy.jpg)"></div>
+      </figure>
+    </div>
+
+    <div class="buddy">
+      <figure>
+        <div class="avatar" style="display: block; background-image: url(restaurant.jpg)"></div>
+      </figure>
+    </div>
+
+    <div class="buddy">
+      <figure>
+        <div class="avatar" style="display: block; background-image: url(yogurt-on-grass.jpg)"></div>
+      </figure>
+    </div>
+  </div>
+</body>
+</html>
+
+<script>
+$(document).ready(function(){
+  $(".buddy").on("swiperight",function(){
+    $(this).addClass('rotate-left').delay(700).fadeOut(2);
+    $(this).children("figure").addClass("tint like-tint");
+    $('.buddy').find('.status').remove();
+
+    $(this).append('<div class="status like">YEAH!</div>');
+    if ( $(this).is(':last-child') ) {
+      $('.buddy:nth-child(1)').removeClass ('rotate-left rotate-right').fadeIn(300);
+    } else {
+      $(this).next().removeClass('rotate-left rotate-right').fadeIn(400);
+    }
+  });
+
+  $(".buddy").on("swipeleft",function(){
+    $(this).addClass('rotate-right').delay(700).fadeOut(2);
+    $(this).children("figure").addClass("tint dislike-tint");
+    $('.buddy').find('.status').remove();
+    $(this).append('<div class="status dislike">NOPE.</div>');
+
+    if ( $(this).is(':last-child') ) {
+     $('.buddy:nth-child(1)').removeClass ('rotate-left rotate-right').fadeIn(300);
+     alert('Na-na!');
+    } else {
+      $(this).next().removeClass('rotate-left rotate-right').fadeIn(400);
+    }
+  });
+});
+
+// score=0;
+// function gainedPoint(){
+// score++;
+// }
+// function getScore(){
+// return score;
+// }
+</script>
+
+</script>
