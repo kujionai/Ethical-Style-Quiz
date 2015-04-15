@@ -9,7 +9,15 @@ h1 {
   color: #0e0e0e;
 }
 
-
+h2 {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 400;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 25px;
+  color: #0e0e0e;
+  letter-spacing: 3px;
+}
 
 #container {
   width: 480px;
@@ -118,85 +126,142 @@ h1 {
   <link href='http://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'>
 </head>
 <body>
-  <h1>Oberlin College or NYU?</h1>
-  <!-- <h2>SWIPE TO DISCOVER THE COLLEGE THAT FITS YOUR STYLE</h2> -->
+  <h1>Which Ethical Look Do YOU Champion?</h1>
+  <h2>SWIPE TO DISCOVER YOUR ETHICAL STYLE</h2>
   <div id="container">
-    <div class="buddy" style="display: block;">
+    <div class="buddy everlane" style="display: block;">
       <figure>
-        <div class="avatar"  style="display: block; background-image: url(protest.jpg)"></div>
+        <div class="avatar"  style="display: block; background-image: url(img/everlane/everlane-1.jpg)"></div>
       </figure>
     </div>
 
-    <div class="buddy">
+    <div class="buddy aa">
       <figure>
-        <div class="avatar" style="display: block; background-image: url(entrepreneur.jpg)"></div>
+        <div class="avatar" style="display: block; background-image: url(img/aa/aa-1.jpg)"></div>
       </figure>
     </div>
 
-    <div class="buddy">
+    <div class="buddy patagonia">
       <figure>
-        <div class="avatar" style="display: block; background-image: url(field.jpg)"></div>
+        <div class="avatar" style="display: block; background-image: url(img/patagonia/patagonia-1.jpg)"></div>
       </figure>
     </div>
 
-    <div class="buddy">
+    <div class="buddy vintage">
       <figure>
-        <div class="avatar" style="display: block; background-image: url(hippie-dance.jpg)"></div>
+        <div class="avatar" style="display: block; background-image: url(img/vintage/vintage-1.jpg)"></div>
       </figure>
     </div>
 
-    <div class="buddy">
+<!--     <div class="buddy aa">
       <figure>
-        <div class="avatar"  style="display: block; background-image: url(hipster.jpg)"></div>
+        <div class="avatar"  style="display: block; background-image: url(img/aa/aa-2.jpg)"></div>
       </figure>
     </div>
 
-    <div class="buddy">
+    <div class="buddy everlane">
       <figure>
-        <div class="avatar" style="display: block; background-image: url(manhattan.jpg)"></div>
+        <div class="avatar" style="display: block; background-image: url(img/everlane/everlane-2.jpg)"></div>
       </figure>
     </div>
 
-    <div class="buddy">
+    <div class="buddy vintage">
       <figure>
-        <div class="avatar" style="display: block; background-image: url(party.jpg)"></div>
+        <div class="avatar" style="display: block; background-image: url(img/vintage/vintage-2.jpg)"></div>
       </figure>
     </div>
 
-    <div class="buddy">
+    <div class="buddy patagonia">
       <figure>
-        <div class="avatar" style="display: block; background-image: url(preppy-guy.jpg)"></div>
+        <div class="avatar" style="display: block; background-image: url(img/patagonia/patagonia-2.jpg)"></div>
       </figure>
     </div>
 
-    <div class="buddy">
+    <div class="buddy patagonia"> 
       <figure>
-        <div class="avatar" style="display: block; background-image: url(restaurant.jpg)"></div>
+        <div class="avatar" style="display: block; background-image: url(img/patagonia/patagonia-3.jpg)"></div>
       </figure>
     </div>
 
-    <div class="buddy">
+    <div class="buddy everlane">
       <figure>
-        <div class="avatar" style="display: block; background-image: url(yogurt-on-grass.jpg)"></div>
+        <div class="avatar" style="display: block; background-image: url(img/everlane/everlane-3.jpg)"></div>
       </figure>
     </div>
+
+    <div class="buddy vintage">
+      <figure>
+        <div class="avatar" style="display: block; background-image: url(img/vintage/vintage-3.jpg)"></div>
+      </figure>
+    </div>
+
+    <div class="buddy aa">
+      <figure>
+        <div class="avatar" style="display: block; background-image: url(img/aa/aa-3.jpg)"></div>
+      </figure>
+    </div>
+
+    <div class="buddy vintage">
+      <figure>
+        <div class="avatar" style="display: block; background-image: url(img/vintage/vintage-4.jpg)"></div>
+      </figure>
+    </div>
+
+    <div class="buddy everlane">
+      <figure>
+        <div class="avatar" style="display: block; background-image: url(img/everlane/everlane-4.jpg)"></div>
+      </figure>
+    </div>
+
+    <div class="buddy patagonia">
+      <figure>
+        <div class="avatar" style="display: block; background-image: url(img/patagonia/patagonia-4.jpg)"></div>
+      </figure>
+    </div>
+
+    <div class="buddy aa">
+      <figure>
+        <div class="avatar" style="display: block; background-image: url(img/aa/aa-4.jpg)"></div>
+      </figure>
+    </div> -->
   </div>
 </body>
 </html>
 
 <script>
 $(document).ready(function(){
+
+  var everlane_score = 0;
+  var patagonia_score = 0;
+  var aa_score = 0;
+  var vintage_score = 0;
+
+  var score_array = [everlane_score, patagonia_score, aa_score, vintage_score];
+
   $(".buddy").on("swiperight",function(){
     $(this).addClass('rotate-left').delay(700).fadeOut(2);
     $(this).children("figure").addClass("tint like-tint");
     $('.buddy').find('.status').remove();
-
     $(this).append('<div class="status like">YEAH!</div>');
+
+    if ( $(this).hasClass('everlane') ) {
+      everlane_score++;
+      console.log(everlane_score);
+    } else if ( $(this).hasClass('patagonia') ) {
+      patagonia_score++;
+    } else if ( $(this).hasClass('aa') ) {
+      aa_score++;
+    } else if ( $(this).hasClass('vintage') ) {
+      vintage_score++;
+    }
+
     if ( $(this).is(':last-child') ) {
       $('.buddy:nth-child(1)').removeClass ('rotate-left rotate-right').fadeIn(300);
+      alert(score_array[0]);
     } else {
       $(this).next().removeClass('rotate-left rotate-right').fadeIn(400);
     }
+
   });
 
   $(".buddy").on("swipeleft",function(){
@@ -206,8 +271,8 @@ $(document).ready(function(){
     $(this).append('<div class="status dislike">NOPE.</div>');
 
     if ( $(this).is(':last-child') ) {
-     $('.buddy:nth-child(1)').removeClass ('rotate-left rotate-right').fadeIn(300);
-     alert('Na-na!');
+      $('.buddy:nth-child(1)').removeClass ('rotate-left rotate-right').fadeIn(300);
+      alert(score_array[0]);
     } else {
       $(this).next().removeClass('rotate-left rotate-right').fadeIn(400);
     }
@@ -221,6 +286,7 @@ $(document).ready(function(){
 // function getScore(){
 // return score;
 // }
+
 </script>
 
 </script>
