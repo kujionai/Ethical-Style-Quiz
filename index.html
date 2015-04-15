@@ -231,12 +231,12 @@ h2 {
 <script>
 $(document).ready(function(){
 
-  var everlane_score = 0;
-  var patagonia_score = 0;
-  var aa_score = 0;
-  var vintage_score = 0;
-
-  var score_array = [everlane_score, patagonia_score, aa_score, vintage_score];
+  var scores = {
+    everlane: 0,
+    patagonia: 0,
+    aa: 0,
+    vintage: 0,
+  };
 
   $(".buddy").on("swiperight",function(){
     $(this).addClass('rotate-left').delay(700).fadeOut(2);
@@ -245,19 +245,30 @@ $(document).ready(function(){
     $(this).append('<div class="status like">YEAH!</div>');
 
     if ( $(this).hasClass('everlane') ) {
-      everlane_score++;
-      console.log(everlane_score);
+      scores.everlane++;
     } else if ( $(this).hasClass('patagonia') ) {
-      patagonia_score++;
+      scores.patagonia++;
     } else if ( $(this).hasClass('aa') ) {
-      aa_score++;
+      scores.aa++;
     } else if ( $(this).hasClass('vintage') ) {
-      vintage_score++;
+      scores.vintage++;
     }
 
     if ( $(this).is(':last-child') ) {
       $('.buddy:nth-child(1)').removeClass ('rotate-left rotate-right').fadeIn(300);
-      alert(score_array[0]);
+      if (Math.max(scores.everlane, scores.patagonia, scores.aa, scores.vintage) === scores.everlane) {
+        alert("Everlane!");
+      } else if (Math.max(scores.everlane, scores.patagonia, scores.aa, scores.vintage) === scores.patagonia) {
+        alert("Patagonia!");
+      } else if (Math.max(scores.everlane, scores.patagonia, scores.aa, scores.vintage) === scores.aa) {
+        alert("American Apparel!");
+      } else if (Math.max(scores.everlane, scores.patagonia, scores.aa, scores.vintage) === scores.vintage) {
+        alert("Vintage!");
+      }
+      //alert(Math.max(scores.everlane, scores.patagonia, scores.aa, scores.vintage));
+      // alert( Math.max.apply(this, scores) );
+
+
     } else {
       $(this).next().removeClass('rotate-left rotate-right').fadeIn(400);
     }
@@ -272,7 +283,18 @@ $(document).ready(function(){
 
     if ( $(this).is(':last-child') ) {
       $('.buddy:nth-child(1)').removeClass ('rotate-left rotate-right').fadeIn(300);
-      alert(score_array[0]);
+      //alert(Math.max(everlane_score, patagonia_score, aa_score, vintage_score));
+
+      if (Math.max(scores.everlane, scores.patagonia, scores.aa, scores.vintage) === scores.everlane) {
+        alert("Everlane!");
+      } else if (Math.max(scores.everlane, scores.patagonia, scores.aa, scores.vintage) === scores.patagonia) {
+        alert("Patagonia!");
+      } else if (Math.max(scores.everlane, scores.patagonia, scores.aa, scores.vintage) === scores.aa) {
+        alert("American Apparel!");
+      } else if (Math.max(scores.everlane, scores.patagonia, scores.aa, scores.vintage) === scores.vintage) {
+        alert("Vintage!");
+      }
+
     } else {
       $(this).next().removeClass('rotate-left rotate-right').fadeIn(400);
     }
