@@ -2,21 +2,49 @@
 
 <style>
 
+.intro {
+  width: 992px;
+  display: block;
+  margin: auto;
+}
+
 h1 {
   font-family: 'Playfair Display', serif;
   text-align: center;
-  font-size: 50px;
+  font-size: 56px;
   color: #0e0e0e;
+  letter-spacing: 2px;
+}
+
+.intro-p {
+  font-family: "PT Serif", serif;
+  color: #222;
+  font-size: 18px;
+  letter-spacing: 1px;
+  word-spacing: 2px;
+  line-height: 30px;
+  width: 768px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 h2 {
   font-family: 'Josefin Sans', sans-serif;
-  font-weight: 400;
+  font-weight: 600;
   text-align: center;
   text-transform: uppercase;
   font-size: 25px;
   color: #0e0e0e;
   letter-spacing: 3px;
+}
+
+.quiz-box {
+  width: 480px;
+  padding: 50px 50px 600px 50px;
+  margin: 50px auto 100px auto;
+  border: 2px solid #e0e0e0;
+  overflow: hidden;
 }
 
 #container {
@@ -35,7 +63,6 @@ h2 {
 
 .buddy {
   display: none;
-  top: 50px;
   position: absolute;
   cursor: hand;
 }
@@ -114,6 +141,10 @@ h2 {
   background: rgba(246,71,72,0.75);
 }
 
+.hide {
+  opacity: 0;
+}
+
 </style>
 
 <html>
@@ -122,108 +153,118 @@ h2 {
   <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css">
   <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
   <script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
-  <link href='http://fonts.googleapis.com/css?family=Josefin+Sans:100,300,400' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Josefin+Sans:100,300,400,600,700' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=PT+Serif:400,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
-  <h1>Which Ethical Look Do YOU Champion?</h1>
-  <h2>SWIPE TO DISCOVER YOUR ETHICAL STYLE</h2>
-  <div id="container">
-    <div class="buddy everlane" style="display: block;">
-      <figure>
-        <div class="avatar"  style="display: block; background-image: url(img/everlane/everlane-1.jpg)"></div>
-      </figure>
-    </div>
+  <div class="intro">
+    <h1>Which Ethical Look Do YOU Champion?</h1>
+    <p class="intro-p">Ethical fashion represents an approach to the design, sourcing and manufacture of clothing which maximises benefits to people and communities while minimising impact on the environment. The meaning of ethical goes beyond doing no harm, representing an approach which strives to take an active role in poverty reduction, sustainable livelihood creation, minimising and counteracting environmental concerns.</p>
 
-    <div class="buddy aa">
-      <figure>
-        <div class="avatar" style="display: block; background-image: url(img/aa/aa-1.jpg)"></div>
-      </figure>
-    </div>
+    <p class="intro-p">Swipe right if you like what you see, left if not so much, and figure out your moral fashion muse.</p>
+  </div>
+  <div class="quiz-box">
+    <h2>SWIPE TO DISCOVER YOUR ETHICAL STYLE</h2>
+    <div id="container">
+      <hide>
+        <div class="buddy everlane" style="display: block;">
+          <figure>
+            <div class="avatar"  style="display: block; background-image: url(img/everlane/everlane-1.jpg)"></div>
+          </figure>
+        </div>
 
-    <div class="buddy patagonia">
-      <figure>
-        <div class="avatar" style="display: block; background-image: url(img/patagonia/patagonia-1.jpg)"></div>
-      </figure>
-    </div>
+        <div class="buddy aa">
+          <figure>
+            <div class="avatar" style="display: block; background-image: url(img/aa/aa-1.jpg)"></div>
+          </figure>
+        </div>
 
-    <div class="buddy vintage">
-      <figure>
-        <div class="avatar" style="display: block; background-image: url(img/vintage/vintage-1.jpg)"></div>
-      </figure>
-    </div>
+        <div class="buddy patagonia">
+          <figure>
+            <div class="avatar" style="display: block; background-image: url(img/patagonia/patagonia-1.jpg)"></div>
+          </figure>
+        </div>
 
-<!--     <div class="buddy aa">
-      <figure>
-        <div class="avatar"  style="display: block; background-image: url(img/aa/aa-2.jpg)"></div>
-      </figure>
-    </div>
+        <div class="buddy vintage">
+          <figure>
+            <div class="avatar" style="display: block; background-image: url(img/vintage/vintage-1.jpg)"></div>
+          </figure>
+        </div>
 
-    <div class="buddy everlane">
-      <figure>
-        <div class="avatar" style="display: block; background-image: url(img/everlane/everlane-2.jpg)"></div>
-      </figure>
-    </div>
+        <div class="buddy aa">
+          <figure>
+            <div class="avatar"  style="display: block; background-image: url(img/aa/aa-2.jpg)"></div>
+          </figure>
+        </div>
 
-    <div class="buddy vintage">
-      <figure>
-        <div class="avatar" style="display: block; background-image: url(img/vintage/vintage-2.jpg)"></div>
-      </figure>
-    </div>
+        <div class="buddy everlane">
+          <figure>
+            <div class="avatar" style="display: block; background-image: url(img/everlane/everlane-2.jpg)"></div>
+          </figure>
+        </div>
 
-    <div class="buddy patagonia">
-      <figure>
-        <div class="avatar" style="display: block; background-image: url(img/patagonia/patagonia-2.jpg)"></div>
-      </figure>
-    </div>
+        <div class="buddy vintage">
+          <figure>
+            <div class="avatar" style="display: block; background-image: url(img/vintage/vintage-2.jpg)"></div>
+          </figure>
+        </div>
 
-    <div class="buddy patagonia"> 
-      <figure>
-        <div class="avatar" style="display: block; background-image: url(img/patagonia/patagonia-3.jpg)"></div>
-      </figure>
-    </div>
+        <div class="buddy patagonia">
+          <figure>
+            <div class="avatar" style="display: block; background-image: url(img/patagonia/patagonia-2.jpg)"></div>
+          </figure>
+        </div>
 
-    <div class="buddy everlane">
-      <figure>
-        <div class="avatar" style="display: block; background-image: url(img/everlane/everlane-3.jpg)"></div>
-      </figure>
-    </div>
+        <div class="buddy patagonia">
+          <figure>
+            <div class="avatar" style="display: block; background-image: url(img/patagonia/patagonia-3.jpg)"></div>
+          </figure>
+        </div>
 
-    <div class="buddy vintage">
-      <figure>
-        <div class="avatar" style="display: block; background-image: url(img/vintage/vintage-3.jpg)"></div>
-      </figure>
-    </div>
+        <div class="buddy everlane">
+          <figure>
+            <div class="avatar" style="display: block; background-image: url(img/everlane/everlane-3.jpg)"></div>
+          </figure>
+        </div>
 
-    <div class="buddy aa">
-      <figure>
-        <div class="avatar" style="display: block; background-image: url(img/aa/aa-3.jpg)"></div>
-      </figure>
-    </div>
+        <div class="buddy vintage">
+          <figure>
+            <div class="avatar" style="display: block; background-image: url(img/vintage/vintage-3.jpg)"></div>
+          </figure>
+        </div>
 
-    <div class="buddy vintage">
-      <figure>
-        <div class="avatar" style="display: block; background-image: url(img/vintage/vintage-4.jpg)"></div>
-      </figure>
-    </div>
+        <div class="buddy aa">
+          <figure>
+            <div class="avatar" style="display: block; background-image: url(img/aa/aa-3.jpg)"></div>
+          </figure>
+        </div>
 
-    <div class="buddy everlane">
-      <figure>
-        <div class="avatar" style="display: block; background-image: url(img/everlane/everlane-4.jpg)"></div>
-      </figure>
-    </div>
+        <div class="buddy vintage">
+          <figure>
+            <div class="avatar" style="display: block; background-image: url(img/vintage/vintage-4.jpg)"></div>
+          </figure>
+        </div>
 
-    <div class="buddy patagonia">
-      <figure>
-        <div class="avatar" style="display: block; background-image: url(img/patagonia/patagonia-4.jpg)"></div>
-      </figure>
-    </div>
+        <div class="buddy everlane">
+          <figure>
+            <div class="avatar" style="display: block; background-image: url(img/everlane/everlane-4.jpg)"></div>
+          </figure>
+        </div>
 
-    <div class="buddy aa">
-      <figure>
-        <div class="avatar" style="display: block; background-image: url(img/aa/aa-4.jpg)"></div>
-      </figure>
-    </div> -->
+        <div class="buddy patagonia">
+          <figure>
+            <div class="avatar" style="display: block; background-image: url(img/patagonia/patagonia-4.jpg)"></div>
+          </figure>
+        </div>
+
+        <div class="buddy aa">
+          <figure>
+            <div class="avatar" style="display: block; background-image: url(img/aa/aa-4.jpg)"></div>
+          </figure>
+        </div>
+      </hide>
+    </div>
   </div>
 </body>
 </html>
@@ -256,6 +297,7 @@ $(document).ready(function(){
 
     if ( $(this).is(':last-child') ) {
       $('.buddy:nth-child(1)').removeClass ('rotate-left rotate-right').fadeIn(300);
+      $('hide').addClass('hide');
       if (Math.max(scores.everlane, scores.patagonia, scores.aa, scores.vintage) === scores.everlane) {
         alert("Everlane!");
       } else if (Math.max(scores.everlane, scores.patagonia, scores.aa, scores.vintage) === scores.patagonia) {
@@ -265,50 +307,31 @@ $(document).ready(function(){
       } else if (Math.max(scores.everlane, scores.patagonia, scores.aa, scores.vintage) === scores.vintage) {
         alert("Vintage!");
       }
-      //alert(Math.max(scores.everlane, scores.patagonia, scores.aa, scores.vintage));
-      // alert( Math.max.apply(this, scores) );
-
-
-    } else {
-      $(this).next().removeClass('rotate-left rotate-right').fadeIn(400);
-    }
-
-  });
-
-  $(".buddy").on("swipeleft",function(){
-    $(this).addClass('rotate-right').delay(700).fadeOut(2);
-    $(this).children("figure").addClass("tint dislike-tint");
-    $('.buddy').find('.status').remove();
-    $(this).append('<div class="status dislike">NOPE.</div>');
-
-    if ( $(this).is(':last-child') ) {
-      $('.buddy:nth-child(1)').removeClass ('rotate-left rotate-right').fadeIn(300);
-      //alert(Math.max(everlane_score, patagonia_score, aa_score, vintage_score));
-
-      if (Math.max(scores.everlane, scores.patagonia, scores.aa, scores.vintage) === scores.everlane) {
-        alert("Everlane!");
-      } else if (Math.max(scores.everlane, scores.patagonia, scores.aa, scores.vintage) === scores.patagonia) {
-        alert("Patagonia!");
-      } else if (Math.max(scores.everlane, scores.patagonia, scores.aa, scores.vintage) === scores.aa) {
-        alert("American Apparel!");
-      } else if (Math.max(scores.everlane, scores.patagonia, scores.aa, scores.vintage) === scores.vintage) {
-        alert("Vintage!");
-      }
-
     } else {
       $(this).next().removeClass('rotate-left rotate-right').fadeIn(400);
     }
   });
+
+$(".buddy").on("swipeleft",function(){
+  $(this).addClass('rotate-right').delay(700).fadeOut(2);
+  $(this).children("figure").addClass("tint dislike-tint");
+  $('.buddy').find('.status').remove();
+  $(this).append('<div class="status dislike">NOPE.</div>');
+
+  if ( $(this).is(':last-child') ) {
+    $('.buddy:nth-child(1)').removeClass ('rotate-left rotate-right').fadeIn(300);
+    if (Math.max(scores.everlane, scores.patagonia, scores.aa, scores.vintage) === scores.everlane) {
+      alert("Everlane!");
+    } else if (Math.max(scores.everlane, scores.patagonia, scores.aa, scores.vintage) === scores.patagonia) {
+      alert("Patagonia!");
+    } else if (Math.max(scores.everlane, scores.patagonia, scores.aa, scores.vintage) === scores.aa) {
+      alert("American Apparel!");
+    } else if (Math.max(scores.everlane, scores.patagonia, scores.aa, scores.vintage) === scores.vintage) {
+      alert("Vintage!");
+    }
+  } else {
+    $(this).next().removeClass('rotate-left rotate-right').fadeIn(400);
+  }
 });
-
-// score=0;
-// function gainedPoint(){
-// score++;
-// }
-// function getScore(){
-// return score;
-// }
-
-</script>
-
+});
 </script>
